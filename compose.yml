@@ -1,5 +1,5 @@
 alfresco:
-  image: wabson/alfresco-standalone-cors
+  image: alfresco-standalone-cors
   ports:
    - "8080:8080"
   links:
