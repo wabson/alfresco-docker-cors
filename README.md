@@ -10,7 +10,7 @@ To build and install the image locally, run
 
 To run a container using `docker compose`
 
-    docker-compose -f compose.yml -d up
+    docker-compose -f compose.yml up -d
 
 When you are done you can stop and remove the containers
 
