@@ -12,3 +12,6 @@ COPY assets/splicewebxml.sh $ALF_HOME
 RUN chmod +x ./splicewebxml.sh
 RUN ./splicewebxml.sh cors-web.xml tomcat/webapps/alfresco
 RUN ./splicewebxml.sh cors-web.xml tomcat/webapps/share
+
+RUN rm $ALF_HOME/tomcat/webapps/alfresco/WEB-INF/lib/cors-filter-*.jar
+COPY assets/cors-filter-2.5.jar $ALF_HOME/tomcat/webapps/alfresco/WEB-INF/lib

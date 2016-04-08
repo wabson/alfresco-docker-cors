@@ -11,9 +11,13 @@ test ! -f "$source" && echo "Source $source does not exist or is not a file" && 
 test ! -f "$target" && echo "Target directory $2 does not exist or is not a directory" && exit 1
 test ! -f "$target" && echo "File WEB-INF/web.xml does not exist or is not a file in directory $2" && exit 1
 
-sed '/<\/web-app>/d' $target > $temp
-cat $source >> $temp
-echo '</web-app>' >> $temp
+if [ -n "$( grep 'CORS Filter End' $target )" ]; then
+    sed "/CORS Filter End/r $source" $target > $temp
+else
+    sed '/<\/web-app>/d' $target > $temp
+    cat $source >> $temp
+    echo '</web-app>' >> $temp
+fi
 
 mv $target $target.bak
 mv $temp $target

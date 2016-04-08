@@ -1,36 +1,41 @@
-<filter>
-    <filter-name>CorsFilter</filter-name>
-    <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
-    <init-param>
-        <param-name>cors.allowed.origins</param-name>
-        <param-value>*</param-value>
-    </init-param>
-    <init-param>
-        <param-name>cors.allowed.methods</param-name>
-        <param-value>GET,POST,HEAD,OPTIONS,PUT,DELETE</param-value>
-    </init-param>
-    <init-param>
-        <param-name>cors.allowed.headers</param-name>
-        <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization,x-file-size,x-file-name,x-file-type</param-value>
-    </init-param>
-    <init-param>
-        <param-name>cors.exposed.headers</param-name>
-        <param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials</param-value>
-    </init-param>
-    <init-param>
-        <param-name>cors.support.credentials</param-name>
-        <param-value>true</param-value>
-    </init-param>
-    <init-param>
-        <param-name>cors.preflight.maxage</param-name>
-        <param-value>3600</param-value>
-    </init-param>
-</filter>
 
-<filter-mapping>
-    <filter-name>CorsFilter</filter-name>
-    <url-pattern>/api/*</url-pattern>
-    <url-pattern>/service/*</url-pattern>
-    <url-pattern>/s/*</url-pattern>
-    <url-pattern>/cmisbrowser/*</url-pattern>
-</filter-mapping>
+    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
+        <init-param>
+            <param-name>cors.allowGenericHttpRequests</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.allowOrigin</param-name>
+            <param-value>*</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.allowSubdomains</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.supportedMethods</param-name>
+            <param-value>GET, HEAD, POST, PUT, DELETE, OPTIONS</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.supportedHeaders</param-name>
+            <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization,x-file-size,x-file-name,x-file-type</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.supportsCredentials</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.maxAge</param-name>
+            <param-value>3600</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/api/*</url-pattern>
+        <url-pattern>/service/*</url-pattern>
+        <url-pattern>/s/*</url-pattern>
+        <url-pattern>/cmisbrowser/*</url-pattern>
+    </filter-mapping>
