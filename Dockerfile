@@ -16,3 +16,4 @@ RUN ./splicewebxml.sh cors-web.xml tomcat/webapps/share
 RUN rm $ALF_HOME/tomcat/webapps/alfresco/WEB-INF/lib/cors-filter-*.jar
 COPY assets/cors-filter-2.5.jar $ALF_HOME/tomcat/webapps/alfresco/WEB-INF/lib
 COPY assets/cors-filter-2.5.jar $ALF_HOME/tomcat/webapps/share/WEB-INF/lib
+COPY assets/java-property-utils-1.9.1.jar $ALF_HOME/tomcat/webapps/share/WEB-INF/lib
