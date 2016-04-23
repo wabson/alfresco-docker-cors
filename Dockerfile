@@ -1,5 +1,7 @@
 FROM enzor/alfresco-standalone
 
+COPY assets/alfresco.war $ALF_HOME/tomcat/webapps
+
 WORKDIR $ALF_HOME
 RUN mkdir tomcat/webapps/alfresco
 RUN mkdir tomcat/webapps/share
