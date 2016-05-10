@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="patch.siteLoadPatch.swsdp" class="org.alfresco.repo.admin.patch.impl.SiteLoadPatch" parent="basePatch">
+        <property name="id"><value>patch.siteLoadPatch.swsdp</value></property>
+        <property name="description"><value>patch.siteLoadPatch.description</value></property>
+        <property name="fixesFromSchema"><value>0</value></property>
+        <property name="fixesToSchema"><value>${version.schema}</value></property>
+        <property name="targetSchema"><value>100000</value></property>
+        <property name="disabled"><value>false</value></property>
+        <property name="dependsOn">
+            <list>
+                <ref bean="patch.updateDmPermissions"/>
+            </list>
+        </property>
+        <property name="spacesBootstrap" ref="siteLoadBootstrap-Spaces"/>
+        <property name="usersBootstrap" ref="siteLoadBootstrap-Users"/>
+        <property name="siteService" ref="siteService"/>
+        <property name="descriptorService" ref="descriptorComponent"/>
+        <property name="authorityService" ref="authorityService"/>
+        <property name="behaviourFilter" ref="policyBehaviourFilter"/>
+        <property name="siteName">
+            <value>swsdp</value>
+        </property>
+        <property name="bootstrapViews">
+            <map>
+                <entry key="users">
+                    <props>
+                        <prop key="location">alfresco/bootstrap/team-sample-sites/swsdp/Users.acp</prop>
+                    </props>
+                </entry>
+                <entry key="people">
+                    <props>
+                        <prop key="location">alfresco/bootstrap/team-sample-sites/swsdp/People.acp</prop>
+                    </props>
+                </entry>
+                <entry key="groups">
+                    <props>
+                        <prop key="location">alfresco/bootstrap/team-sample-sites/swsdp/Groups.txt</prop>
+                    </props>
+                </entry>
+                <entry key="contents">
+                    <props>
+                        <prop key="location">alfresco/bootstrap/team-sample-sites/swsdp/Contents.acp</prop>
+                    </props>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+</beans>
